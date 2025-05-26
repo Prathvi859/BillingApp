@@ -1,6 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Container, CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import {
+  Container,
+  CssBaseline,
+  ThemeProvider,
+  createTheme,
+} from '@mui/material';
 import Navbar from './components/Layout/Navbar';
 import ItemsList from './components/Items/ItemsList';
 import CreateInvoice from './components/Invoice/CreateInvoice';
@@ -35,4 +40,4 @@ function App() {
   );
 }
 
-export default App; 
+export default App;

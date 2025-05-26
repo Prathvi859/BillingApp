@@ -37,4 +37,4 @@ export interface Invoice {
 export interface Quotation extends Omit<Invoice, 'invoiceNumber'> {
   quotationNumber: string;
   validUntil: string;
-} 
+}

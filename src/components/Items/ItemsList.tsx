@@ -32,9 +32,13 @@ const ItemsList: React.FC = () => {
   const handleSave = () => {
     if (currentItem.id) {
       // Edit existing item
-      setItems(items.map(item => 
-        item.id === currentItem.id ? { ...item, ...currentItem } as Item : item
-      ));
+      setItems(
+        items.map((item) =>
+          item.id === currentItem.id
+            ? ({ ...item, ...currentItem } as Item)
+            : item,
+        ),
+      );
     } else {
       // Add new item
       const newItem: Item = {
@@ -51,7 +55,7 @@ const ItemsList: React.FC = () => {
   };
 
   const handleDelete = (id: string) => {
-    setItems(items.filter(item => item.id !== id));
+    setItems(items.filter((item) => item.id !== id));
   };
 
   const handleEdit = (item: Item) => {
@@ -61,7 +65,12 @@ const ItemsList: React.FC = () => {
 
   return (
     <>
-      <Button variant="contained" color="primary" onClick={handleOpen} sx={{ mb: 2 }}>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleOpen}
+        sx={{ mb: 2 }}
+      >
         Add New Item
       </Button>
       <TableContainer component={Paper}>
@@ -97,7 +106,9 @@ const ItemsList: React.FC = () => {
       </TableContainer>
 
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>{currentItem.id ? 'Edit Item' : 'Add New Item'}</DialogTitle>
+        <DialogTitle>
+          {currentItem.id ? 'Edit Item' : 'Add New Item'}
+        </DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
@@ -105,14 +116,18 @@ const ItemsList: React.FC = () => {
             label="Item Name"
             fullWidth
             value={currentItem.name || ''}
-            onChange={(e) => setCurrentItem({ ...currentItem, name: e.target.value })}
+            onChange={(e) =>
+              setCurrentItem({ ...currentItem, name: e.target.value })
+            }
           />
           <TextField
             margin="dense"
             label="HSN Code"
             fullWidth
             value={currentItem.hsnCode || ''}
-            onChange={(e) => setCurrentItem({ ...currentItem, hsnCode: e.target.value })}
+            onChange={(e) =>
+              setCurrentItem({ ...currentItem, hsnCode: e.target.value })
+            }
           />
           <TextField
             margin="dense"
@@ -120,7 +135,9 @@ const ItemsList: React.FC = () => {
             type="number"
             fullWidth
             value={currentItem.price || ''}
-            onChange={(e) => setCurrentItem({ ...currentItem, price: Number(e.target.value) })}
+            onChange={(e) =>
+              setCurrentItem({ ...currentItem, price: Number(e.target.value) })
+            }
           />
           <TextField
             margin="dense"
@@ -128,7 +145,12 @@ const ItemsList: React.FC = () => {
             type="number"
             fullWidth
             value={currentItem.gstRate || ''}
-            onChange={(e) => setCurrentItem({ ...currentItem, gstRate: Number(e.target.value) })}
+            onChange={(e) =>
+              setCurrentItem({
+                ...currentItem,
+                gstRate: Number(e.target.value),
+              })
+            }
           />
         </DialogContent>
         <DialogActions>
@@ -142,4 +164,4 @@ const ItemsList: React.FC = () => {
   );
 };
 
-export default ItemsList; 
+export default ItemsList;

@@ -46,7 +46,10 @@ const CreateInvoice: React.FC = () => {
   }, []);
 
   const calculateTotals = (items: Item[]) => {
-    const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const subtotal = items.reduce(
+      (sum, item) => sum + item.price * item.quantity,
+      0,
+    );
     const cgstTotal = items.reduce((sum, item) => sum + item.cgst, 0);
     const sgstTotal = items.reduce((sum, item) => sum + item.sgst, 0);
     const igstTotal = items.reduce((sum, item) => sum + item.igst, 0);
@@ -56,7 +59,8 @@ const CreateInvoice: React.FC = () => {
   };
 
   const handleAddItem = () => {
-    if (!selectedItem.name || !selectedItem.quantity || !selectedItem.price) return;
+    if (!selectedItem.name || !selectedItem.quantity || !selectedItem.price)
+      return;
 
     const quantity = Number(selectedItem.quantity);
     const price = Number(selectedItem.price);
@@ -66,7 +70,7 @@ const CreateInvoice: React.FC = () => {
     const gstAmount = (amount * gstRate) / 100;
 
     const newItem: Item = {
-      ...selectedItem as Item,
+      ...(selectedItem as Item),
       id: Date.now().toString(),
       cgst: gstAmount / 2,
       sgst: gstAmount / 2,
@@ -86,7 +90,7 @@ const CreateInvoice: React.FC = () => {
   };
 
   const handleRemoveItem = (id: string) => {
-    const updatedItems = (invoice.items || []).filter(item => item.id !== id);
+    const updatedItems = (invoice.items || []).filter((item) => item.id !== id);
     const totals = calculateTotals(updatedItems);
 
     setInvoice({
@@ -108,7 +112,9 @@ const CreateInvoice: React.FC = () => {
               fullWidth
               label="Invoice Number"
               value={invoice.invoiceNumber || ''}
-              onChange={(e) => setInvoice({ ...invoice, invoiceNumber: e.target.value })}
+              onChange={(e) =>
+                setInvoice({ ...invoice, invoiceNumber: e.target.value })
+              }
               margin="normal"
             />
             <TextField
@@ -128,7 +134,10 @@ const CreateInvoice: React.FC = () => {
               onChange={(e) =>
                 setInvoice({
                   ...invoice,
-                  customer: { ...invoice.customer, name: e.target.value } as Customer,
+                  customer: {
+                    ...invoice.customer,
+                    name: e.target.value,
+                  } as Customer,
                 })
               }
               margin="normal"
@@ -140,7 +149,10 @@ const CreateInvoice: React.FC = () => {
               onChange={(e) =>
                 setInvoice({
                   ...invoice,
-                  customer: { ...invoice.customer, gstin: e.target.value } as Customer,
+                  customer: {
+                    ...invoice.customer,
+                    gstin: e.target.value,
+                  } as Customer,
                 })
               }
               margin="normal"
@@ -159,7 +171,9 @@ const CreateInvoice: React.FC = () => {
               fullWidth
               label="Item Name"
               value={selectedItem.name || ''}
-              onChange={(e) => setSelectedItem({ ...selectedItem, name: e.target.value })}
+              onChange={(e) =>
+                setSelectedItem({ ...selectedItem, name: e.target.value })
+              }
             />
           </Grid>
           <Grid item xs={12} md={2}>
@@ -168,7 +182,12 @@ const CreateInvoice: React.FC = () => {
               type="number"
               label="Quantity"
               value={selectedItem.quantity || ''}
-              onChange={(e) => setSelectedItem({ ...selectedItem, quantity: Number(e.target.value) })}
+              onChange={(e) =>
+                setSelectedItem({
+                  ...selectedItem,
+                  quantity: Number(e.target.value),
+                })
+              }
             />
           </Grid>
           <Grid item xs={12} md={2}>
@@ -177,7 +196,12 @@ const CreateInvoice: React.FC = () => {
               type="number"
               label="Price"
               value={selectedItem.price || ''}
-              onChange={(e) => setSelectedItem({ ...selectedItem, price: Number(e.target.value) })}
+              onChange={(e) =>
+                setSelectedItem({
+                  ...selectedItem,
+                  price: Number(e.target.value),
+                })
+              }
             />
           </Grid>
           <Grid item xs={12} md={2}>
@@ -186,11 +210,21 @@ const CreateInvoice: React.FC = () => {
               type="number"
               label="GST Rate (%)"
               value={selectedItem.gstRate || ''}
-              onChange={(e) => setSelectedItem({ ...selectedItem, gstRate: Number(e.target.value) })}
+              onChange={(e) =>
+                setSelectedItem({
+                  ...selectedItem,
+                  gstRate: Number(e.target.value),
+                })
+              }
             />
           </Grid>
           <Grid item xs={12} md={3}>
-            <Button variant="contained" color="primary" onClick={handleAddItem} fullWidth>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleAddItem}
+              fullWidth
+            >
               Add Item
             </Button>
           </Grid>
@@ -202,8 +236,10 @@ const CreateInvoice: React.FC = () => {
           <Typography variant="h5">Your Company Name</Typography>
           <Typography variant="body1">
             Company Address Line 1<br />
-            City, State, ZIP<br />
-            Phone: +91-XXXXXXXXXX<br />
+            City, State, ZIP
+            <br />
+            Phone: +91-XXXXXXXXXX
+            <br />
             GSTIN: 22AAAAA0000A1Z5
           </Typography>
 
@@ -253,21 +289,34 @@ const CreateInvoice: React.FC = () => {
                 </TableRow>
               ))}
               <TableRow>
-                <TableCell colSpan={4} align="right"><strong>Totals:</strong></TableCell>
-                <TableCell align="right"><strong>{invoice.cgstTotal?.toFixed(2)}</strong></TableCell>
-                <TableCell align="right"><strong>{invoice.sgstTotal?.toFixed(2)}</strong></TableCell>
-                <TableCell align="right"><strong>{invoice.total?.toFixed(2)}</strong></TableCell>
+                <TableCell colSpan={4} align="right">
+                  <strong>Totals:</strong>
+                </TableCell>
+                <TableCell align="right">
+                  <strong>{invoice.cgstTotal?.toFixed(2)}</strong>
+                </TableCell>
+                <TableCell align="right">
+                  <strong>{invoice.sgstTotal?.toFixed(2)}</strong>
+                </TableCell>
+                <TableCell align="right">
+                  <strong>{invoice.total?.toFixed(2)}</strong>
+                </TableCell>
               </TableRow>
             </TableBody>
           </Table>
         </TableContainer>
 
         <Paper sx={{ p: 2, mt: 2 }}>
-          <Typography variant="h6" gutterBottom>Bank Details</Typography>
+          <Typography variant="h6" gutterBottom>
+            Bank Details
+          </Typography>
           <Typography variant="body2">
-            <strong>Bank Name:</strong> HDFC Bank<br />
-            <strong>Account Number:</strong> XXXXXXXXXX1234<br />
-            <strong>IFSC Code:</strong> HDFC0001234<br />
+            <strong>Bank Name:</strong> HDFC Bank
+            <br />
+            <strong>Account Number:</strong> XXXXXXXXXX1234
+            <br />
+            <strong>IFSC Code:</strong> HDFC0001234
+            <br />
             <strong>Branch:</strong> Koramangala, Bangalore
           </Typography>
 
@@ -276,7 +325,11 @@ const CreateInvoice: React.FC = () => {
               <Typography variant="body1">
                 <strong>Authorized Signature:</strong>
               </Typography>
-              <img src="/signature-seal.png" alt="Company Seal and Signature" height="80" />
+              <img
+                src="/signature-seal.png"
+                alt="Company Seal and Signature"
+                height="80"
+              />
             </Grid>
             <Grid item>
               <Typography variant="body2" align="right">
@@ -323,7 +376,12 @@ const CreateInvoice: React.FC = () => {
         </Table>
       </TableContainer>
 
-      <Button variant="contained" color="primary" onClick={handlePrint} sx={{ mt: 2 }}>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handlePrint}
+        sx={{ mt: 2 }}
+      >
         Print Invoice
       </Button>
     </div>
