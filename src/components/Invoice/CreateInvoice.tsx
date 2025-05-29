@@ -236,11 +236,11 @@ const CreateInvoice: React.FC = () => {
           <Typography variant="h5">Kaveri Paints And Hardware</Typography>
           <Typography variant="body1">
             Commercial Complex 2-73(2)<br />
-           Sajipamunnur,
+           Sajipamunnur, Sajipanadu Dk - Karnataka - 574231
             <br />
             Phone: +91-9880273919
             <br />
-{/*             GSTIN: 22AAAAA0000A1Z5 */}
+            GSTIN: 29CRPPC8522F1ZK
           </Typography>
 
           <Grid container spacing={2} sx={{ mt: 2 }}>
@@ -307,7 +307,7 @@ const CreateInvoice: React.FC = () => {
         </TableContainer>
 
         <Paper sx={{ p: 2, mt: 2 }}>
-          <Typography variant="h6" gutterBottom>
+{/*           <Typography variant="h6" gutterBottom>
             Bank Details
           </Typography>
           <Typography variant="body2">
@@ -318,18 +318,18 @@ const CreateInvoice: React.FC = () => {
             <strong>IFSC Code:</strong> HDFC0001234
             <br />
             <strong>Branch:</strong> Koramangala, Bangalore
-          </Typography>
+          </Typography> */}
 
           <Grid container justifyContent="space-between" sx={{ mt: 4 }}>
             <Grid item>
               <Typography variant="body1">
                 <strong>Authorized Signature:</strong>
               </Typography>
-              <img
+{/*               <img
                 src="/signature-seal.png"
                 alt="Company Seal and Signature"
                 height="80"
-              />
+              /> */}
             </Grid>
             <Grid item>
               <Typography variant="body2" align="right">
