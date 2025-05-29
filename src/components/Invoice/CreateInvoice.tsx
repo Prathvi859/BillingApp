@@ -317,7 +317,7 @@ const CreateInvoice: React.FC = () => {
             <br />
             <strong>IFSC Code:</strong> KARB0000734
             <br />
-            <strong>Branch:</strong>SUBASHNAGAR,SAJIPAMUDA POST,BANTWAL TALUK,SAJIPA-574231
+            <strong>Branch:</strong> SUBASHNAGAR,SAJIPAMUDA POST,BANTWAL TALUK,SAJIPA-574231
           </Typography>
 
           <Grid container justifyContent="space-between" sx={{ mt: 4 }}>
