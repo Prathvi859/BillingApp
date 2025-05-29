@@ -37,7 +37,7 @@ const CreateInvoice: React.FC = () => {
   
   const handlePrint = useReactToPrint({
   content: () => componentRef.current,
-  documentTitle: invoice.customer?.name?.trim() || 'invoice',
+  documentTitle: invoice.customer?.name?.trim() || invoice.invoiceNumber,
 });
 
 
