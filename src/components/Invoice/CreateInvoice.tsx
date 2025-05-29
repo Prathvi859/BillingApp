@@ -26,9 +26,14 @@ const CreateInvoice: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<Partial<Item>>({});
   const componentRef = useRef(null);
 
+  // const handlePrint = useReactToPrint({
+  //   content: () => componentRef.current,
+  // });
   const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-  });
+  content: () => componentRef.current,
+  documentTitle: invoice.invoiceNumber || 'invoice',
+});
+
 
   const generateInvoiceNumber = () => {
     const now = new Date();
