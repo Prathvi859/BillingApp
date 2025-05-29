@@ -238,7 +238,7 @@ const CreateInvoice: React.FC = () => {
             Commercial Complex 2-73(2)<br />
            Sajipamunnur, Sajipanadu Dk - Karnataka - 574231
             <br />
-            Phone: +91-9880273919
+            Phone: +91 - 9880273919
             <br />
             GSTIN: 29CRPPC8522F1ZK
           </Typography>
@@ -307,18 +307,18 @@ const CreateInvoice: React.FC = () => {
         </TableContainer>
 
         <Paper sx={{ p: 2, mt: 2 }}>
-{/*           <Typography variant="h6" gutterBottom>
+          <Typography variant="h6" gutterBottom>
             Bank Details
           </Typography>
           <Typography variant="body2">
-            <strong>Bank Name:</strong> HDFC Bank
+            <strong>Bank Name:</strong> KARNATAKA BANK LTD
             <br />
-            <strong>Account Number:</strong> XXXXXXXXXX1234
+            <strong>Account Number:</strong> 0734202500000401
             <br />
-            <strong>IFSC Code:</strong> HDFC0001234
+            <strong>IFSC Code:</strong> KARB0000734
             <br />
-            <strong>Branch:</strong> Koramangala, Bangalore
-          </Typography> */}
+            <strong>Branch:</strong>SUBASHNAGAR,SAJIPAMUDA POST,BANTWAL TALUK,SAJIPA-574231
+          </Typography>
 
           <Grid container justifyContent="space-between" sx={{ mt: 4 }}>
             <Grid item>
