@@ -233,14 +233,14 @@ const CreateInvoice: React.FC = () => {
 
       <div ref={componentRef}>
         <Paper sx={{ p: 2, mb: 2 }}>
-          <Typography variant="h5">Your Company Name</Typography>
+          <Typography variant="h5">Kaveri Paints And Hardware</Typography>
           <Typography variant="body1">
-            Company Address Line 1<br />
-            City, State, ZIP
+            Commercial Complex 2-73(2)<br />
+           Sajipamunnur,
             <br />
-            Phone: +91-XXXXXXXXXX
+            Phone: +91-9880273919
             <br />
-            GSTIN: 22AAAAA0000A1Z5
+{/*             GSTIN: 22AAAAA0000A1Z5 */}
           </Typography>
 
           <Grid container spacing={2} sx={{ mt: 2 }}>
